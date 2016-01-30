@@ -15,6 +15,9 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     @IBOutlet weak var TableView: UITableView!
     var movies: [NSDictionary]?
+    var endPoint: String!
+    var selectionStyle: UITableViewCellSelectionStyle!
+    var selectedBackgroundView: UIView?
     
     
     override func viewDidLoad() {
@@ -49,6 +52,7 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
                             
                             self.movies = responseDictionary["results"] as! [NSDictionary]
                             self.loadDataFromNetwork()
+                        
                             // Reload the tableView now that there is new data
                             self.TableView.reloadData()
                         
@@ -67,7 +71,7 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Configure session so that completion handler is executed on main UI thread
         
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = NSURL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
+        let url = NSURL(string: "https://api.themoviedb.org/3/movie/\(endPoint)?api_key=\(apiKey)")
         let request = NSURLRequest(URL: url!)
 
         
@@ -84,6 +88,7 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 // Reload the tableView now that there is new data
                 self.TableView.reloadData()
+              
                 
                 // Tell the refreshControl to stop spinning
                 refreshControl.endRefreshing()	
@@ -97,7 +102,7 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-        let url = NSURL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
+        let url = NSURL(string: "https://api.themoviedb.org/3/movie/\(endPoint)?api_key=\(apiKey)")
         let request = NSURLRequest(
             URL: url!,
             cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData,
@@ -121,7 +126,7 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
                     
                     // Hide HUD once the network request comes back (must be done on main UI thread)
                     MBProgressHUD.hideHUDForView(self.view, animated: true)
-                    
+                
                     // ... Remainder of response handling code ...
                     
             });
@@ -161,8 +166,35 @@ class MovieViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.PosterView.setImageWithURL(image!)
         
         
+        
         print("\(indexPath)")
         return cell
     }
+    
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let cell = sender as! UITableViewCell
+        let indexPath = TableView.indexPathForCell(cell)
+        let movie = movies![indexPath!.row]
+        
+        let detailViewController = segue.destinationViewController as! DetailViewController
+        detailViewController.movie = movie
+       
+        
+        let backgroundView = UIView()
+        cell.selectionStyle = .None
+        backgroundView.backgroundColor = UIColor.redColor()
+        cell.selectedBackgroundView = backgroundView
+        
+        
+        
+        
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
+    }
+
 
 }

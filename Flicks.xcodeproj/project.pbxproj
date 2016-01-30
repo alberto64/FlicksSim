@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B7A2F42FA8BB5E2699BAE568 /* Pods_Flicks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D2798C4692A92B46F60A563 /* Pods_Flicks.framework */; };
+		CB25DC161C5C49B50005054F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB25DC151C5C49B50005054F /* DetailViewController.swift */; };
 		CB7AEDE51C53E2F4005C6BD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7AEDE41C53E2F4005C6BD2 /* AppDelegate.swift */; };
 		CB7AEDEA1C53E2F4005C6BD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB7AEDE81C53E2F4005C6BD2 /* Main.storyboard */; };
 		CB7AEDEC1C53E2F4005C6BD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB7AEDEB1C53E2F4005C6BD2 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		2D2798C4692A92B46F60A563 /* Pods_Flicks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flicks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C03E00ED532F6E51E1F5B4 /* Pods-Flicks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flicks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flicks/Pods-Flicks.debug.xcconfig"; sourceTree = "<group>"; };
+		CB25DC151C5C49B50005054F /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CB7AEDE11C53E2F4005C6BD2 /* Flicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB7AEDE41C53E2F4005C6BD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB7AEDE91C53E2F4005C6BD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				CB7AEDF61C53E410005C6BD2 /* MovieViewController.swift */,
+				CB25DC151C5C49B50005054F /* DetailViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				CB7AEDFA1C54081B005C6BD2 /* TableViewCell.swift in Sources */,
 				CB7AEDE51C53E2F4005C6BD2 /* AppDelegate.swift in Sources */,
 				CB7AEDF71C53E410005C6BD2 /* MovieViewController.swift in Sources */,
+				CB25DC161C5C49B50005054F /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
